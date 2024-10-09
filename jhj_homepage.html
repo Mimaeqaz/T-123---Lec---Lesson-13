@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JHJ Taxi Operators</title>
+    <link rel="stylesheet" href="CSS/jhj_taxi_operators.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="Images/logo.png" alt="JHJ Taxi Operators Logo">
+        </div>
+        <div class="header-content">
+            <nav>
+                <ul>
+                    <li><a href="jhj_homepage.html">Home</a></li>
+                    <li><a href="jhj_units_page.html">Units</a></li>
+                    <li><a href="jhj_drivers_page2.html">Drivers</a></li>
+                    <li><a href="jhj_records_page.html">Records</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="Search">
+            </div>
+            <div class="profile-icon">
+                <img src="Images/user_profile_default.jpg" alt="Profile">
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+      <button class="toggle-btn" id="toggle-btn">&#9776;</button>
+      <ul>
+          <li><a href="#todays_schedule">Today's Schedule</a></li>
+          <li><a href="#boundary">Boundary</a></li>
+          <li><a href="#">Notifications</a></li>
+      </ul>
+  </div>
+  
+<div class="main" id="main">
+    <h1 class="driver_title">TODAY'S SCHEDULE: <div id="time"></div></h1>
+    <div class="wrapper">
+        <div class="user-card">
+            <div class="schedule"> 
+            <table>
+                <thead>
+                    <tr>
+                        <th>Unit No.</th>
+                        <th>Unit Plate</th>
+                        <th>Driver</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>DSA 771</td>
+                        <td>Jemery Baokan</td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>ITE 114</td>
+                        <td>Heller Gosling</td>
+                    </tr>
+                    <tr>
+                        <td>003</td>
+                        <td>SSP 224</td>
+                        <td>Jick Polqueen</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+
+    <h1 class="driver_title" id="driver_title">BOUNDARIES</h1>
+    <div class="wrapper">
+        <div class="user-card">
+            <div class="schedule">
+            <table class="tables">
+                <thead>
+                    <tr>
+                        <th>Unit No.</th>
+                        <th>Driver</th>
+                        <th>Boundary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>DSA 771</td>
+                        <td>Jemery Baokan</td>
+                        <td>₱ <input type="number"><button>Enter</button></td>
+                    </tr>
+                    <tr>
+                        <td>ITE 114</td>
+                        <td>Heller Gosling</td>
+                        <td>₱ <input type="number"><button>Enter</button></td>
+                    </tr>
+                    <tr>
+                        <td>SSP 224</td>
+                        <td>Jick Polqueen</td>
+                        <td>₱ <input type="number"><button>Enter</button></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            </div> 
+        </div>
+    </div> 
+</div>
+   
+  </div>
+  <script src="JAVASCRIPT/jhj_taxi_operators_js.js">
+  </script>
+  
+</body>
+</html>
