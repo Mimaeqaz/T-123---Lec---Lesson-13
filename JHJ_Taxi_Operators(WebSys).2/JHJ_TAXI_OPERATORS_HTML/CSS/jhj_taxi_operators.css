@@ -1,0 +1,459 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+/* Welcome Page */
+.welcome_body {
+    background: linear-gradient(to bottom right, #DDFFC9, #6157FF, #EE49FD);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-size: cover;
+}
+
+#welcome_logo {
+    width: 5in;
+    height: 5in;
+}
+
+.welcome_words {
+    color: black;
+    text-align: center;
+}
+
+#log-in {
+    margin-top: 20px;
+    margin-right: 10px;
+    color: black;
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    padding: 10px;
+    text-align: center;
+}
+
+#log-in:hover {
+    color: whitesmoke;
+    background-color: black;
+    border: solid whitesmoke 3px;
+    border-radius: 25%;
+}
+
+#sign-in {
+    margin-top: 20px;
+    margin-left: 10px;
+    color: black;
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    text-align: center;
+}
+
+#sign-in:hover {
+    text-decoration: underline 3px;
+}
+
+/* ------------------------------------------------------------*/
+/* Log-In & Sign-In */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom right, #DDFFC9, #6157FF, #EE49FD);
+    height: 1in;
+    border: whitesmoke solid 2px;
+    padding: 10px;
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    width: 1in;
+    height: 1in;
+    border-radius: 50%;
+}
+
+.header .nav {
+    display: flex;
+    justify-content: space-evenly;
+    flex: 1;
+}
+
+.main {
+    flex: 1;
+    padding: 20px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url("jhj_logo_cropped.png") no-repeat center center ;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: margin-left 0.3s ease;
+   
+    height: 130vh; 
+}
+
+.login_signin {
+    
+    text-align: center;
+    font-size: 30px;
+    color: black;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: whitesmoke solid 2px;
+    background: transparent;
+    backdrop-filter: blur(5px);
+}
+
+.login_signin input {
+    text-align: center;
+    width: auto;
+    height: auto;
+    background: transparent;
+    outline:none;
+    border:none;
+    border-bottom: 2px solid black;
+    caret-color: red;
+    margin: 20px;
+    font-size: 25px;
+    color: black;
+}
+
+.login_signin input::placeholder {
+    color: lightslategray;
+}
+
+.login_signin p {
+    font-size: 18px;
+}
+
+.login_signin a {
+    color: blue;
+}
+
+.login_signin a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.login_signin a:visited {
+    color: darkmagenta;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.login_signin input[type="button"] {
+    font-size: 20px;
+    color: black;
+    border: solid black 2px;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 10px;
+    margin-top: 20px;
+    background: transparent;
+}
+
+.login_signin input[type="button"]:hover {
+    color: whitesmoke;
+    background-color: black;
+    border: solid whitesmoke 2px;
+}
+
+/*-------------------------------------------------*/
+/* Pages */
+.logo img {
+    width: 1in;
+    height: 1in;
+    border-radius: 50%;
+    border: solid whitesmoke 2px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 1;
+    margin-left: 20px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    padding: 10px;
+    margin: 10px;
+}
+
+nav ul li a:hover {
+    color: #DDFFC9;
+    background: linear-gradient(to bottom right, #DDFFC9, #6157FF, #EE49FD);
+    border: solid whitesmoke 2px;
+    cursor: pointer;
+}
+
+.search-bar input {
+    color: black;
+    padding: 5px;
+    font-size: 20px;
+    background: transparent;
+    outline: none;
+    border: none;
+    caret-color: #DDFFC9;
+    border-bottom: solid black 3px;
+    border-radius: 10px;
+}
+
+.search-bar input::placeholder {
+    color: black;
+}
+
+
+.profile-icon img {
+    height: 40px;
+    border-radius: 50%;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200px;
+    background: linear-gradient(to bottom, #DDFFC9, #6157FF, #EE49FD);
+    color: #fff;
+    transition: width 0.3s ease;
+    overflow-x: hidden;
+    padding-top: 60px;
+    z-index: 5;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 5px;
+    margin-top: 70px;
+}
+
+.sidebar ul li {
+    padding: 15px;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar.collapsed {
+    width: 50px;
+}
+
+.sidebar.collapsed ul li {
+    display: none;
+}
+
+.sidebar.collapsed ul li a {
+    display: none;
+}
+
+.main.collapsed {
+    margin-left: 60px;
+}
+
+.schedule {
+    color: black;
+    margin-top: 20px; 
+    
+}
+
+.schedule h1 {
+    text-align: center;
+}
+
+.schedule table {
+    width: 100%;
+    border-collapse:collapse;
+    margin: 0 auto;
+    
+}
+
+.schedule table, th, td {
+    color: black;
+    border: 1px solid black;
+    padding: 10px;
+    text-align: left;
+    backdrop-filter: blur(5px);
+    margin-bottom: 20px;
+    
+}
+
+.schedule table th {
+    background-color: lightgray;
+    
+}
+
+.toggle-btn {
+    position: sticky;
+    margin: 5px;
+    top: 60px;
+    font-size: 30px;
+    color: white;
+    background: linear-gradient(to bottom, #DDFFC9, #6157FF, #EE49FD);
+    border: whitesmoke solid 3px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.main fieldset {
+    color: black;
+    backdrop-filter: blur(5px);
+}
+
+.driver_profile {
+    height: 0.5in;
+    width: 0.5in;
+    border-radius: 50%;
+}
+
+/*drivers information*/
+.wrapper{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 12%;
+    max-width: 650px;
+    place-items: center;
+    text-align: center;
+    margin-bottom: -140px;
+}
+.user-card{
+    display: flex;
+    flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	background-color: #fff;
+	border-radius: 10px;
+	padding: 10px;
+	width: 650px;
+	position: relative;
+	overflow: hidden;
+	box-shadow: 0 2px 15px -5px #EE49FD;
+    background: transparent;
+    backdrop-filter: blur(5px);
+    border: 1px outset ;
+    
+}
+.user-card:before {
+    content: '';
+    position: absolute;
+    height: 300%;
+    width: 173px;
+    background: linear-gradient(to bottom right, #DDFFC9, #6157FF, #EE49FD);
+    top: -60px;
+    left: -125px;
+    z-index: 0;
+    transform: rotate(17deg);
+  }
+  .user-card-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    z-index: 3;
+  }
+  .user-card-img img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .user-card-info {
+    text-align: center;  
+  }
+  
+  .user-card-info h2 {
+    font-size: 24px;
+    margin: 0;
+    margin-bottom: 10px;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 2px;
+  }
+  
+  .user-card-info p {
+    font-size: 14px;
+    margin-bottom: 2px;
+    padding: 3px;
+  }
+  .user-card-info p span {
+     font-weight: 700;
+     margin-right: 10px;
+ }
+
+ .driver_title{
+    padding: 20px;
+    text-align: center; 
+    margin-bottom: -170px; 
+ }
+
+ #driver_title{
+    padding: 20px;
+    margin-top: 170px;
+ }
+
+/*----add button------*/
+
+ .add_container {
+    position: fixed;
+    bottom: 50px; 
+    right: 50px; /
+  }
+  
+  .add_container button {
+    background: linear-gradient(to bottom right, #DDFFC9, #6157FF, #EE49FD);
+    color: #fff; 
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10%; 
+  }
+  
+  .add_container button:hover {
+    background-color: #3e8e41; 
+  }
+ /*------add new driver------*/ 
+#add_driver{
+    text-align: center;
+    margin: 5px auto; 
+     width: 30%;
+     
+}
+ 
+  #add_driver input[type="text"] {
+    display: block; 
+    margin: 5px auto; 
+    border-radius: 100px;
+  }
+ 
+  
+
+
+  

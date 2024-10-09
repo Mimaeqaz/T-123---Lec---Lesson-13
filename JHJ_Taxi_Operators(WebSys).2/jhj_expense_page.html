@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" type="text/css" href="JHJ_TAXI_OPERATORS_HTML/CSS/jhj_taxi_operators.css" />
+  </head>
+  <style>
+    /* style.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.expense-table {
+  margin-top: 20px;
+}
+
+.expense-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.expense-table th, .expense-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.expense-table th {
+  background-color: #f0f0f0;
+}
+
+.total-amount {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.filter {
+  margin-top: 20px;
+}
+  </style>
+  <body>
+    <header>
+      <div class="logo">
+          <img src="JHJ_TAXI_OPERATORS_HTML/Images/jhj_logo_transparent.png" alt="JHJ Taxi Operators Logo">
+      </div>
+      <div class="header-content">
+          <nav>
+              <ul>
+                  <li><a href="jhj_homepage.html">Home</a></li>
+                  <li><a href="jhj_units_page.html">Units</a></li>
+                  <li><a href="jhj_drivers_page2.html">Drivers</a></li>
+                  <li><a href="jhj_records_page.html">Records</a></li>
+              </ul>
+          </nav>
+          <div class="search-bar">
+              <input type="text" placeholder="Search">
+          </div>
+          <div class="profile-icon">
+              <img src="Images/user_profile_default.jpg" alt="Profile">
+          </div>
+      </div>
+  </header>
+    <div class="container">
+      <h1>Expense Tracker</h1>
+      <form id="expense-form">
+        <input type="text" id="expense-name" placeholder="Expense Name" required />
+        <input type="number" id="expense-amount" placeholder="Amount" required />
+        <select id="expense-category" required>
+          <option value="" disabled selected>Select Category</option>
+          <option value="Fuel">Fuel</option>
+          <option value="Maintenance">Maintenance</option>
+          <option value="Tolls">Tolls</option>
+          <option value="Other">Other</option>
+        </select>
+        <input type="date" id="expense-date" required />
+        <button type="submit">Add Expense</button>
+      </form>
+      <div class="expense-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Expense Name</th>
+              <th>Amount</th>
+              <th>Category</th>
+              <th>Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="expense-list"></tbody>
+        </table>
+        <div class="total-amount">
+          <strong>Total:</strong> $<span id="total-amount">0</span>
+        </div>
+      </div>
+      <div class="filter">
+        <label for="filter-category">Filter by Category:</label>
+        <select id="filter-category">
+          <option value="All">All</option>
+          <option value="Fuel">Fuel</option>
+          <option value="Maintenance">Maintenance</option>
+          <option value="Tolls">Tolls</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+  <script>
+    // script.js
+let tableEntries = [];
+
+// Function to update data expense summary
+function updateSummary() {
+  let totalAmount = tableEntries.reduce((t, e) => t + e.amount, 0);
+  document.getElementById("total-amount").innerText = totalAmount.toFixed(2);
+}
+
+// Function to add new entry to the dataset and expense table
+function addItem() {
+  let expenseName = document.getElementById("expense-name").value;
+  let expenseAmount = parseFloat(document.getElementById("expense-amount").value);
+  let expenseCategory = document.getElementById("expense-category").value;
+  let expenseDate = document.getElementById("expense-date").value;
+
+  // Input validation
+  if (expenseName === "" || expenseAmount <= 0) {
+    return alert("Incorrect Input");
+  }
+
+  let newEntry = {
+    name: expenseName,
+    amount: expenseAmount,
+    category: expenseCategory,
+    date: expenseDate,
+  };
+
+  tableEntries.push(newEntry);
+  updateSummary();
+
+  let tableRow = document.createElement("tr");
+  tableRow.innerHTML = `
+    <td>${expenseName}</td>
+    <td>${expenseAmount.toFixed(2)}</td>
+    <td>${expenseCategory}</td>
+    <td>${expenseDate}</td>
+    <td><button class="delete-btn">Delete</button
+  </td>
+  `;
+  document.getElementById("expense-list").appendChild(tableRow);
+
+  // Add event listener to delete button
+  tableRow.querySelector(".delete-btn").addEventListener("click", () => {
+    let index = tableEntries.findIndex((e) => e.name === expenseName);
+    if (index !== -1) {
+      tableEntries.splice(index, 1);
+      updateSummary();
+      tableRow.remove();
+    }
+  });
+
+  // Clear form fields
+  document.getElementById("expense-name").value = "";
+  document.getElementById("expense-amount").value = "";
+  document.getElementById("expense-category").value = "";
+  document.getElementById("expense-date").value = "";
+}
+
+// Add event listener to form submission
+document.getElementById("expense-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  addItem();
+});
+
+// Add event listener to filter category
+document.getElementById("filter-category").addEventListener("change", () => {
+  let filterCategory = document.getElementById("filter-category").value;
+  let tableRows = document.getElementById("expense-list").rows;
+
+  for (let i = 0; i < tableRows.length; i++) {
+    let rowCategory = tableRows[i].cells[2].textContent;
+    if (filterCategory === "All" || rowCategory === filterCategory) {
+      tableRows[i].style.display = "";
+    } else {
+      tableRows[i].style.display = "none";
+    }
+  }
+});
+</script>
+</html>
